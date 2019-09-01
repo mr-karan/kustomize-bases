@@ -5,4 +5,4 @@ resources:
 configMapGenerator:
 - name: redis-config
   files:
-  - config/redis.conf
+  - redis-config=config/redis.conf

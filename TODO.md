@@ -1,4 +1,6 @@
 - [ ] PostgreSQL
 - [ ] MySQL
 - [ ] Redis
+  - [ ] Stateless
+  - [ ] Stateful
 - [ ] Nginx

@@ -20,20 +20,20 @@ spec:
         - "/etc/redis/redis.conf"
         ports:
         - containerPort: 6379
-    resources:
-      limits:
-        cpu: "0.3"
-        memory: "500Mi"
-      requests:
-        cpu: "0.2"
-        memory: "300Mi"
-    volumeMounts:
-    - mountPath: /etc/redis/
-      name: config
-  volumes:
-    - name: config
-      configMap:
-        name: redis-config
-        items:
-        - key: redis-config
-          path: redis.conf
+        resources:
+          limits:
+            cpu: "0.3"
+            memory: "500Mi"
+          requests:
+            cpu: "0.2"
+            memory: "300Mi"
+        volumeMounts:
+        - mountPath: /etc/redis/
+          name: config
+      volumes:
+        - name: config
+          configMap:
+            name: redis-config
+            items:
+            - key: redis-config
+              path: redis.conf

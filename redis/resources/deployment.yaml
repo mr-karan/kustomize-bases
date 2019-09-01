@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: redis
+  template:
+    metadata:
+      labels:
+        service: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:5.0-alpine
+        command:
+        - redis-server
+        - "/etc/redis/redis.conf"
+        ports:
+        - containerPort: 6379
+    resources:
+      limits:
+        cpu: "0.3"
+        memory: "500Mi"
+      requests:
+        cpu: "0.2"
+        memory: "300Mi"
+    volumeMounts:
+    - mountPath: /etc/redis/
+      name: config
+  volumes:
+    - name: config
+      configMap:
+        name: redis-config
+        items:
+        - key: redis-config
+          path: redis.conf

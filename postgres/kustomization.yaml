@@ -1,0 +1,3 @@
+resources:
+- resources/statefulset.yaml
+- resources/svc-headless.yaml

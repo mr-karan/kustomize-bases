@@ -1,3 +1,4 @@
 resources:
 - resources/statefulset.yaml
 - resources/svc-headless.yaml
+- resources/cluster-ip.yaml

@@ -51,3 +51,5 @@ spec:
           subPath: postgres
       volumes:
       - name: postgres-data
+        persistentVolumeClaim:
+          claimName: app-db
